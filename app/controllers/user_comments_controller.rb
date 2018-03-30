@@ -10,7 +10,7 @@ class UserCommentsController < ApplicationController
 
   def index
   	@user_comment = UserComment.new
-  	@user_comments = UserComment.all.reverse.where('(user_comments.created_at - user_comments.created_at) > 30')
+  	@user_comments = UserComment.all.reverse
   end
 
   private
