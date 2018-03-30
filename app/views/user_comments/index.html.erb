@@ -1,0 +1,17 @@
+<html>
+<h1>Please log your comments here</h1>
+<%= form_for @user_comment,remote: true do |f|%>
+<p>
+<%= f.label :add_new_comment %><br>
+<%= f.text_area :comment %>
+</p>
+<p>
+  <%= f.submit "Post"%>
+</p>
+<% end %>
+<% @user_comments.each do |i| %>
+<p>Comment from <%= i.ip_address%> at <%= i.created_at.strftime('%Y-%m-%d %H:%S')%><p>
+<p><%= sanitize i.comment.html_safe %></p>	
+<!-- <p><%= i.comment.html_safe %></p> -->
+<% end %>
+</html>
